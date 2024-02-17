@@ -2,20 +2,20 @@
 import { ReactNode } from "react";
 import AuthProvider from "./AuthProvider";
 import { SideBarProvider } from "../context/sideBarContext";
-import { ThemeProvider } from "@mui/material";
-import { LightTheme } from "../themes/LightTheme";
+import { AppThemeProvider } from "../context";
 
 
-export default function Providers ({children}: {children: ReactNode}) {
-    return(
+
+export default function Providers({ children }: { children: ReactNode }) {
+    return (
         <>
-            <ThemeProvider theme={LightTheme}>
-                <AuthProvider>
+            <AuthProvider>
+                <AppThemeProvider>
                     <SideBarProvider>
                         {children}
                     </SideBarProvider>
-                </AuthProvider>
-            </ThemeProvider>
+                </AppThemeProvider>
+            </AuthProvider>
         </>
     )
 }
