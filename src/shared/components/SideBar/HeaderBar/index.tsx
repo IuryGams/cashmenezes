@@ -2,10 +2,10 @@
 import styles from "./HeaderBar.module.scss";
 
 import Image from "next/image";
-import logoName from "../../../../public/icons/logo_name2.png";
+import logoName from "../../../../../public/icons/logo_name2.png";
 import { IoMdMenu } from "react-icons/io";
 import { useContext, useState } from "react";
-import { SideBarContext } from "@/context/sideBarContext";
+import { SideBarContext } from "@/shared/context/sideBarContext";
 
 
 export default function HeaderBar(){
