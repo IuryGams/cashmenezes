@@ -1,0 +1,14 @@
+.sideBar_nav{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    padding: 0 0.5em;
+    max-height: 80dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    
+}

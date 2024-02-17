@@ -1,0 +1,33 @@
+.itemList{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding-left: 10px;
+    align-items: center;
+
+    a{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        gap: 12px;
+        padding: 0.5em;
+        color: black;
+        border-radius: 8px;
+
+        &:hover{
+            background-color: white;
+        }
+        
+        span{
+            display: block;
+        }
+
+        svg{
+            width: 30px;
+            height: 30px;
+            flex: none;
+        }
+
+    }
+}
