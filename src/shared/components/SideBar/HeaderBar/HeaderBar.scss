@@ -1,0 +1,109 @@
+.logo_container{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    position: relative;
+
+    figure.box_image{
+        width: 50px;
+        height: 50px;
+        position: relative;
+
+        img{
+            object-fit: contain;
+        }
+    }
+
+    h1.title{
+        opacity: 1;
+        white-space: nowrap;
+        color: white;
+        text-transform: capitalize;
+        transition: opacity 200ms ease;
+        pointer-events: initial;
+    }
+
+    .burger_container {
+        background-color: slateblue;
+        position: absolute;
+        left: 100%;
+        top: 135%;
+        width: 32px;
+        height: 32px;
+        border-radius: 100%;
+        z-index: 1;
+        overflow: hidden;
+        transition: width 300ms ease;
+
+        input#burguer_Menu {
+            display: none;
+        }
+
+        .burger_trigger {
+            content: "";
+            display: block;
+            position: relative;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            z-index: 2;
+
+            .burger_menu {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 3px;
+                border-radius: 2rem;
+                background-color: white;
+                z-index: 1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+
+                &::before {
+                    content: "";
+                    background-color: white;
+                    position: absolute;
+                    width: 20px;
+                    height: 3px;
+                    border-radius: 2rem;
+                    margin-top: 7px;
+                    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+                }
+
+                &::after {
+                    content: "";
+                    background-color: white;
+                    position: absolute;
+                    width: 20px;
+                    height: 3px;
+                    border-radius: 2rem;
+                    margin-top: -7px;
+                    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+                }
+            }
+        }
+
+        input#burguer_Menu:checked + .burger_trigger {
+            .burger_menu {
+                background-color: rgba(255, 255, 255, 0);
+            }
+
+            .burger_menu::before {
+                margin-top: 0px;
+                transform: rotate(405deg);
+            }
+
+            .burger_menu::after {
+                margin-top: 0px;
+                transform: rotate(-405deg);
+            }
+        }
+    }
+}

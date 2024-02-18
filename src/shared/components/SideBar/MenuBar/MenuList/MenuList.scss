@@ -1,0 +1,19 @@
+.menu_list{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 0.5em 0;
+
+    h3{
+        white-space: nowrap;
+        font-size: 14px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.8);
+        margin: 0.2em 0 0.2em 0;
+        opacity: 1;
+        pointer-events: initial;
+        transition: opacity 200ms ease;
+    }
+
+}

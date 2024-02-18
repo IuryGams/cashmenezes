@@ -1,0 +1,62 @@
+.container_profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10dvh;
+
+    .card_profile {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+
+        figure {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            overflow: hidden;
+            img {
+                object-fit: cover;
+            }
+        }
+
+        .content_profile {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            gap: 4px;
+            pointer-events: initial;
+            transition: 200ms all ease-in-out;
+            opacity: 1;
+            pointer-events: initial;
+
+            b.name_profile {
+                font-size: 16.7px;
+                color: white;
+                white-space: nowrap;
+            }
+
+            span {
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.7);
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .settings{
+        color: white;
+        cursor: pointer;
+
+        svg{
+            fill: white;
+            width: 26px;
+            height: 26px;
+        }
+    }
+}

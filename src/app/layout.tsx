@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./../shared/styles/main.scss";
+import "@/styles/main.scss";
 import Providers from "@/shared/providers/Providers";
 
 const inter = Inter({ subsets: ["latin"] });

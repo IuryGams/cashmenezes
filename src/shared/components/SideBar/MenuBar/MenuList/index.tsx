@@ -1,4 +1,5 @@
-import styles from "./MenuList.module.scss";
+'use client';
+import "./MenuList.scss";
 import { ReactNode } from "react";
 
 interface MenuListProps {
@@ -7,9 +8,10 @@ interface MenuListProps {
 }
 
 export default function MenuList({ title, children }: MenuListProps) {
+
     return (
-        <menu className={styles.menu}>
-            <h4>{title}</h4>
+        <menu className="menu_list" >
+            <h3>{title}</h3>
             {children}
         </menu>
     )

@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useContext, useState } from "react";
 
 interface SideBarProps {
     sideBar: boolean;
@@ -19,4 +19,8 @@ export const SideBarProvider = ({children}: {children: ReactNode}) => {
             {children}
         </SideBarContext.Provider>
     )
+}
+
+export const useSideBarContext = () => {
+    return useContext(SideBarContext);
 }

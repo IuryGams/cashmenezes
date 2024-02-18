@@ -1,18 +1,14 @@
 import SideBar from "@/shared/components/SideBar";
-import styles from "./page.module.scss";
-
-// Components
-import { Box } from "@mui/material";
-
+import "./page.scss";
 
 export default function Dashboard() {
 
     return (
-        <main className={styles.dashboard} >
+        <main className="dashboard">
             <SideBar />
-            <Box height="100vh">
-                <h1>Eu sou um conteudo!</h1>
-            </Box>
+            <section className="content" >
+                <h1>asfnajsf</h1>
+            </section>
         </main>
     )
 }

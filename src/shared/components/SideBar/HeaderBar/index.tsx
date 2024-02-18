@@ -1,27 +1,28 @@
 'use client';
-import styles from "./HeaderBar.module.scss";
+import "./HeaderBar.scss";
 
 import Image from "next/image";
-import logoName from "../../../../../public/icons/logo_name2.png";
-import { IoMdMenu } from "react-icons/io";
-import { useContext, useState } from "react";
-import { SideBarContext } from "@/shared/context/sideBarContext";
+import logoName from "../../../../../public/icons/logo.png";
 
-
-export default function HeaderBar(){
-
-    const { sideBar, ToggleSideBar  } = useContext(SideBarContext);
-    const { sideBar_cabecalho, active_cabecalho } = styles;
+export default function HeaderBar({ active }: { active: () => void}){
 
     return(
-        <header className={sideBar ?  active_cabecalho : sideBar_cabecalho}>
-            <h1>CashMenezes</h1>
-            <figure>
-                <Image src={logoName} alt="Logo do site" />
+        <header className="logo_container">
+            <figure className="box_image">
+                <Image src={logoName} width={50} height={50} alt="Logo do site" />
             </figure>
-            <div onClick={ToggleSideBar}>
-                <IoMdMenu/>
+
+            <h1 className="title">
+                Cash Menezes
+            </h1>
+
+            <div className="burger_container"  >
+                <input defaultChecked type="checkbox" id="burguer_Menu" />
+                <label htmlFor="burguer_Menu" onClick={active} className="burger_trigger">
+                    <div className="burger_menu"></div>
+                </label>
             </div>
+            
         </header>
     )
 }

@@ -28,9 +28,7 @@ export const AppThemeProvider = ({ children }: {children: ReactNode}) => {
     return(
         <ThemeContext.Provider value={{ themeName, toggleTheme }}>
             <ThemeProvider theme={theme}>
-                <Box width="100dvw" height="100dvh" bgcolor={theme.palette.background.default} >
-                    {children}
-                </Box>
+                {children}
             </ThemeProvider>
         </ThemeContext.Provider>
     )
