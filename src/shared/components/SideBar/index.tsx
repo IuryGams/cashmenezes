@@ -20,15 +20,5 @@ export default function SideBar() {
             <UserBar /> 
             {/* <FooterBar /> */}
         </aside>
-
-        // <aside className={sideBar === false ? "side_bar" : "side_bar closed"}>
-        //     <HeaderBar open={sideBar} active={ToggleSideBar} />
-
-        //     <UserBar />
-
-        //     <MenuBar open={sideBar} />
-        //     {/* <FooterBar /> */}
-        
-        // </aside>
     )
 }
