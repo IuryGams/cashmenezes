@@ -14,6 +14,18 @@ main.wrapper_page{
     overflow-x: hidden;
     overflow-y: auto;
     transition: all 300ms ease;
+
+    &::-webkit-scrollbar{
+        width: 12px;
+    }
+
+    &::-webkit-scrollbar-track{
+        background: rgba(0,0,0,0.1);  
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: #243b55;         
+    }
 }
 
 main.wrapper_page.closed{

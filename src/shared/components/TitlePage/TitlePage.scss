@@ -7,7 +7,7 @@
     height: 0;
     padding: 0;
 
-    div.box_title{
+    div.title{
         opacity: 0;
         height: 0;
         pointer-events: none;
@@ -20,7 +20,7 @@
     }
 
     div.arrow_top{
-        height: 15px;
+        height: 20px;
         pointer-events: initial;
     }
 
@@ -30,42 +30,25 @@ header.header_dashboard {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: 60px;
     background-color: whitesmoke;
     padding: 1em;
     transition: all 300ms ease-in-out;
     position: relative;
 
-    div.box_title {
+    div.title{
         display: flex;
-        align-items: center;
-        gap: 16px;
-        color: white;
-        color: black;
-        transition: all 300ms ease-in-out;
+        flex-direction: column;
 
-        i.icon_page {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-            svg {
-                color: #1d2631;
-                width: 30px;
-                height: 30px;
-            }
+        h1{
+            font-size: 24px;
         }
-
-        div.title{
-            display: flex;
-            flex-direction: column;
+        span{
+            font-size: 14px;
+            color: rgba(120,120,120);
         }
     }
+
 
     div.box_btn{
         transition: all 300ms ease-in-out;

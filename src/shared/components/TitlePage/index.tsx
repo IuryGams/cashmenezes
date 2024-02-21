@@ -9,22 +9,12 @@ export default function TitlePage() {
         <>
             <input type="checkbox" id="header_trigger" />
             <header className="header_dashboard" >
-                <div className="box_title">
-                    <i className="icon_page">
-                        <TbPigMoney />
-                    </i>
-                    <div className="title" >
-                        <h1>Titulo da página</h1>
-                        <span>Descrição da página</span>
-                    </div>
+                
+                <div className="title" >
+                    <h1>Titulo da página</h1>
+                    <span>Descrição da página</span>
                 </div>
-
-                {/* <div className="box_btn">
-                    <button>
-                        <span>Cadastrar valor</span>
-                        <FiPlusCircle />
-                    </button>
-                </div> */}
+       
                 
                 <div className="arrow_top">
                     <label htmlFor="header_trigger">
