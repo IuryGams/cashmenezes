@@ -15,7 +15,7 @@ interface detailsProps {
   session: boolean;
 }
 
-export default function Home() {
+export default function Authentication() {
 
   const [isVisible, setIsVisible] = useState<boolean>(true);
   const [details, setDetails] = useState<detailsProps>({
@@ -26,20 +26,7 @@ export default function Home() {
 
   const HandleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { id, value } = e.target;
-    // e.target.id = emailhefhsdfhdfjhdfh
-    // e.target.value = "123"
-
-    // prev = {
-    // email: "123@gmail.com",
-    // password: "123"
-    // }
     setDetails((prev) => ({ ...prev, [id]: value }))
-
-  }
-
-  const object = {
-    email: "123@gmail.com",
-    password: "123"
   }
 
   const HandleSubmit = (e: FormEvent) => {
@@ -100,7 +87,7 @@ export default function Home() {
         </div>
 
         <section className={styles.BoxSocialMedia}>
-          <div className={styles.boxGoogle} onClick={() => signIn("google", { callbackUrl: 'http://localhost:3000/dashboard' })} >
+          <div className={styles.boxGoogle} onClick={() => signIn("google", { callbackUrl: 'http://localhost:3000/dashboard/home' })} >
             <FcGoogle size={32} />
             <span>Google</span>
           </div>

@@ -16,8 +16,8 @@ export default function MenuBar({open}: {open: boolean}) {
         <nav className="sideBar_nav" >
         
             <MenuList title="Primeira Seção">
-                <ItemMenu Icon={IoHomeOutline} text="Inicio" link="" />
-                <ItemMenu Icon={IoCashOutline} text="Extrato" link="" /> 
+                <ItemMenu Icon={IoHomeOutline} text="Inicio" link="./home" />
+                <ItemMenu Icon={IoCashOutline} text="Extrato" link="./financas" /> 
             </MenuList>
 
             <MenuList title="Segunda Seção">

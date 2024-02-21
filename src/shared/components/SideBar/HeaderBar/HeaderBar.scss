@@ -1,13 +1,22 @@
 .logo_container{
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: space-between;
     width: 100%;
     align-self: center;
+    gap: 8px;
     justify-self: center;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
     position: relative;
+
+    a.logo{
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 80%;
+        transition: opacity 300ms ease;
+    }
 
     figure.box_image{
         width: 50px;
@@ -24,17 +33,14 @@
         white-space: nowrap;
         color: white;
         text-transform: capitalize;
-        transition: opacity 200ms ease;
+        transition: opacity 300ms ease;
+        font-size: 22px;
         pointer-events: initial;
     }
 
     .burger_container {
-        background-color: slateblue;
-        position: absolute;
-        left: 100%;
-        top: 116%;
-        width: 32px;
-        height: 32px;
+        width: 50px;
+        height: 50px;
         border-radius: 100%;
         z-index: 1;
         overflow: hidden;
@@ -48,44 +54,44 @@
             content: "";
             display: block;
             position: relative;
-            width: 32px;
-            height: 32px;
+            width: 50px;
+            height: 50px;
             cursor: pointer;
             z-index: 2;
 
             .burger_menu {
                 content: "";
                 position: absolute;
-                width: 20px;
-                height: 3px;
+                width: 35px;
+                height: 4px;
                 border-radius: 2rem;
                 background-color: white;
                 z-index: 1;
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+                transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
 
                 &::before {
                     content: "";
                     background-color: white;
                     position: absolute;
-                    width: 20px;
-                    height: 3px;
+                    width: 35px;
+                    height: 4px;
                     border-radius: 2rem;
-                    margin-top: 7px;
-                    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+                    margin-top: 10px;
+                    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
                 }
 
                 &::after {
                     content: "";
                     background-color: white;
                     position: absolute;
-                    width: 20px;
-                    height: 3px;
+                    width: 35px;
+                    height: 4px;
                     border-radius: 2rem;
-                    margin-top: -7px;
-                    transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+                    margin-top: -10px;
+                    transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
                 }
             }
         }

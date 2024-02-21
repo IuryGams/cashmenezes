@@ -3,18 +3,21 @@ import "./HeaderBar.scss";
 
 import Image from "next/image";
 import logoName from "../../../../../public/icons/logo.png";
+import Link from "next/link";
 
 export default function HeaderBar({ active }: { active: () => void}){
 
     return(
         <header className="logo_container">
-            <figure className="box_image">
-                <Image src={logoName} width={50} height={50} alt="Logo do site" />
-            </figure>
+            <Link className="logo" href="">
+                <figure className="box_image">
+                    <Image src={logoName} width={50} height={50} alt="Logo do site" />
+                </figure>
 
-            <h1 className="title">
-                Cash Menezes
-            </h1>
+                <h1 className="title">
+                    Cash Menezes
+                </h1>
+            </Link>
 
             <div className="burger_container"  >
                 <input defaultChecked type="checkbox" id="burguer_Menu" />

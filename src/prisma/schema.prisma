@@ -19,10 +19,10 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
-  invoices      Invoice[]
+  payments      Payment[]
 }
 
-model Invoice{
+model Payment{
   id String @id @default(uuid())
   name String
   price Decimal @db.Decimal(10,2)
