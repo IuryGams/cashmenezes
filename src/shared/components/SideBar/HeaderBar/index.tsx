@@ -4,6 +4,7 @@ import "./HeaderBar.scss";
 import Image from "next/image";
 import logoName from "../../../../../public/icons/logo.png";
 import Link from "next/link";
+import { ContainerUserSection } from "./styled";
 
 export default function HeaderBar({ active }: { active: () => void}){
 

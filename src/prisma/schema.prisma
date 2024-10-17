@@ -6,62 +6,92 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
+  id            Int       @id @default(autoincrement())
+  name          String?   // Nome do usuário (opcional)
   email         String?   @unique
-  password      String?
-  emailVerified DateTime?
-  image         String?
+  emailVerified DateTime? // Verificação de email
+  password      String
+  image         String?   // Imagem de perfil (opcional)
+  createdAt     DateTime  @default(now())
+  
+
+  // Relacionamentos com NextAuth
   accounts      Account[]
   sessions      Session[]
-  payments      Payment[]
-}
-
-model Payment{
-  id String @id @default(uuid())
-  name String
-  price Decimal @db.Decimal(10,2)
-  status String
-  user_id String
-  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  
+  // Relacionamento com sistema de gastos
+  expenses      Expense[]
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String?  @db.Text
-  access_token       String?  @db.Text
-  expires_at         Int?
-  token_type         String?
-  scope              String?
-  id_token           String?  @db.Text
-  session_state      String?
+  id                 String       @id @default(uuid())
+  userId             Int
+  type               String    // Tipo de conta (ex: "oauth", "email")
+  provider           String    // Nome do provedor (ex: "github", "google")
+  providerAccountId  String    // ID da conta no provedor
+  refresh_token      String?   // Token de atualização (opcional)
+  access_token       String?   // Token de acesso (opcional)
+  expires_at         Int?      // Expiração do token (opcional)
+  token_type         String?   // Tipo do token (opcional)
+  scope              String?   // Escopo do token (opcional)
+  id_token           String?   // ID do token (opcional)
+  session_state      String?   // Estado da sessão (opcional)
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
+  user               User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Session {
   id           String   @id @default(cuid())
   sessionToken String   @unique
-  userId       String
+  userId       Int
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
+  identifier   String
+  token        String   @unique
+  expires      DateTime
   @@unique([identifier, token])
+}
+
+model Expense {
+  id              Int         @id @default(autoincrement())
+  totalAmount     Float       // Valor total da compra
+  description     String?
+  date            DateTime    // Data da primeira parcela ou pagamento único
+  status          PaymentStatus // Status do pagamento
+  user            User        @relation(fields: [userId], references: [id])
+  userId          Int
+  category        Category    @relation(fields: [categoryId], references: [id])
+  categoryId      Int
+  installments    Installment[] // Relacionamento com as parcelas
+}
+
+model Installment {
+  id          Int       @id @default(autoincrement())
+  amount      Float     // Valor da parcela
+  dueDate     DateTime  // Data de vencimento
+  paidDate    DateTime? // Data de pagamento (nulo se ainda não foi pago)
+  expense     Expense   @relation(fields: [expenseId], references: [id])
+  expenseId   Int
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  description String?
+  expenses    Expense[]
+}
+
+enum PaymentStatus {
+  PENDING   // Pagamento pendente
+  PAID      // Pagamento realizado
+  CANCELED  // Pagamento cancelado
 }
